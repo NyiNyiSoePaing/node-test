@@ -25,10 +25,10 @@ jobs:
           CUSTOM_TAG: "dmh-frontend-" # custom tag
           BRANCH_NAME: ${{ github.ref_name }} # Branch name
           # IMAGE_TAG: $CUSTOM_TAG$BRANCH_NAME
-          IMAGE_TAG: "dmh-frontend-$BRANCH_NAME"
+          # IMAGE_TAG="dmh-frontend-$BRANCH_NAME"
           
         run: |
-
+          IMAGE_TAG="dmh-frontend-$BRANCH_NAME"
           docker build -t $ECR/$REPO:$IMAGE_TAG .
           docker images
           echo $ECR/$REPO:$IMAGE_TAG
