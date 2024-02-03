@@ -1,0 +1,20 @@
+name: Deploy to Staging
+
+on:
+  workflow_run:
+    workflows: ["Build"]
+    types:
+      - completed
+
+jobs:
+  deploy_staging:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Deploy to Staging
+        run: |
+          # Add your deployment script or commands to deploy to staging
+          echo "Deploying to staging..."

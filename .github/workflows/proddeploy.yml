@@ -1,0 +1,20 @@
+name: Deploy to Production
+
+on:
+  workflow_run:
+    workflows: ["Deploy to Staging"]
+    types:
+      - completed
+
+jobs:
+  deploy_production:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Deploy to Production
+        run: |
+          # Add your deployment script or commands to deploy to production
+          echo "Deploying to production..."
